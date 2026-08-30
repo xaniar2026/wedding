@@ -630,14 +630,16 @@ h2 {
 
 .venue-card__head p {
     margin: 0;
+      direction: rtl;
     color: var(--muted);
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: .14em
 }
 
-.venue-card__head h3 {
+.venue-card__head h4 {
     margin: 1px 0 0;
+      direction: rtl;
     font: 400 22px var(--serif)
 }
 
