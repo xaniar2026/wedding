@@ -1,49 +1,40 @@
 const opening = document.querySelector('#opening');
 const main = document.querySelector('#main');
 const soundButton = document.querySelector('#sound');
-let audioContext, musicTimer, musicPlaying = false;
+const backgroundMusic = document.getElementById('background-music');
+
+function updateMusicButton() {
+  const isPlaying = !backgroundMusic.paused;
+  soundButton.classList.toggle('playing', isPlaying);
+  soundButton.setAttribute('aria-pressed', String(isPlaying));
+  soundButton.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
+}
 
 opening.addEventListener('click', () => {
   opening.classList.add('opened');
   document.body.classList.add('invitation-open');
   document.body.classList.remove('locked');
   main.removeAttribute('aria-hidden');
+  backgroundMusic.play().catch(error => {
+    console.log('Audio playback requires user interaction:', error);
+    updateMusicButton();
+  });
   setTimeout(() => opening.setAttribute('hidden', ''), 1500);
 });
 
-// A gentle, generated ambient chime avoids external audio files and starts only after a tap.
-function startMusic() {
-  audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
-  audioContext.resume();
-  const master = audioContext.createGain();
-  master.gain.value = 0.045;
-  master.connect(audioContext.destination);
-  const notes = [261.63, 329.63, 392, 493.88, 392, 329.63];
-  let step = 0;
-  const playNote = () => {
-    if (!musicPlaying) return;
-    const now = audioContext.currentTime;
-    const osc = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-    osc.type = 'sine';
-    osc.frequency.value = notes[step++ % notes.length];
-    gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(0.55, now + .08);
-    gain.gain.exponentialRampToValueAtTime(.001, now + 1.8);
-    osc.connect(gain).connect(master);
-    osc.start(now); osc.stop(now + 1.9);
-  };
-  playNote();
-  musicTimer = setInterval(playNote, 900);
-}
-
 soundButton.addEventListener('click', () => {
-  musicPlaying = !musicPlaying;
-  soundButton.classList.toggle('playing', musicPlaying);
-  soundButton.setAttribute('aria-pressed', String(musicPlaying));
-  soundButton.setAttribute('aria-label', musicPlaying ? 'Mute background music' : 'Play background music');
-  if (musicPlaying) startMusic(); else clearInterval(musicTimer);
+  if (backgroundMusic.paused) {
+    backgroundMusic.play().catch(error => {
+      console.log('Audio playback requires user interaction:', error);
+      updateMusicButton();
+    });
+  } else {
+    backgroundMusic.pause();
+  }
 });
+
+backgroundMusic.addEventListener('play', updateMusicButton);
+backgroundMusic.addEventListener('pause', updateMusicButton);
 
 const targetDate = new Date('2026-09-30T16:30:00Z');
 const countEls = ['days', 'hours', 'minutes', 'seconds'].map(id => document.getElementById(id));
@@ -76,3 +67,4 @@ document.querySelectorAll('.faq-item button').forEach(button => button.addEventL
 const toTop = document.querySelector('#to-top');
 window.addEventListener('scroll', () => toTop.classList.toggle('visible', scrollY > innerHeight), { passive: true });
 toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+

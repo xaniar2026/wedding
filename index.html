@@ -23,6 +23,10 @@
     <span class="opening__hint">بازش کن <b>↓</b></span>
   </button>
 
+  <audio id="background-music" loop preload="auto">
+    <source src="./assets/audio/wedding-music.mp3" type="audio/mpeg">
+  </audio>
+
   <main id="main" aria-hidden="true">
     <section class="hero" id="home">
       <button class="sound" id="sound" aria-label="Play background music" aria-pressed="false">
@@ -38,6 +42,7 @@
         <div class="hero__rule hero-animate"><span></span><i>✦</i><span></span></div>
         <p class="hero__date hero-animate" > هشتم مهر  </p>
         <p class="hero__date hero-animate">۱۴۰۵</p>
+         <p class="hero__date hero-animate">از ساعت ۶ بعدازظهر تا ۱۲ شب</p>
         <p class="hero__place hero-animate ">باغ تالار بهشتکده</p>
       </div>
       <a class="scroll-cue" href="#welcome" aria-label="لمس کنید"><span>Scroll</span><i></i></a>
@@ -90,7 +95,7 @@
       </div>
     </section>
 
-    <section class="program warm" id="program">
+<!--     <section class="program warm" id="program">
       <div class="section-inner reveal">
         <p class="eyebrow olive-text">هشتم مهر   ۱۴۰۵</p><h2>برنامه روز</h2><p class="section-subtitle dark-text">What we have planned for you</p>
         <div class="timeline">
@@ -100,9 +105,9 @@
           <article><div class="timeline-icon">☾</div><div><time>00:00</time><h3>پایان مراسم</h3><p>With the possibility to extend</p></div></article>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="faq cream" id="faq">
+    <section class="faq warm" id="faq">
       <div class="section-inner reveal">
         <p class="eyebrow olive-text">اطلاعات مهمی</p><h1>که باید بدانید</h1>
         <div class="accordion">
@@ -140,5 +145,8 @@
   <button class="to-top" id="to-top" aria-label="Scroll to top">↑</button>
 
   <script src="script.js"></script>
+
+</audio>
+
 </body>
 </html>
