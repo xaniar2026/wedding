@@ -1,9 +1,9 @@
 @font-face {
     font-family: "IranNastaliq";
-  src:
-    
-  
-    url("./assets/fonts/IranNastaliq2.ttf") format("woff2");
+    src:
+
+
+        url("./assets/fonts/IranNastaliq2.ttf") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap
@@ -120,7 +120,7 @@ h2 {
 
 .section-subtitle {
     margin: 8px 0 39px;
-    color: rgba(255, 255, 255, .76);
+    color: rgb(138 54 54 / 76%);
     font: italic 400 16px/1.6 var(--romantic)
 }
 
@@ -483,44 +483,46 @@ h2 {
 } */
 
 .hero h1.couple-name {
-  font-family: "IranNastaliq", serif;
-  direction: rtl;
-  text-align: center;
-  font-size: clamp(3.5rem, 9vw, 7.5rem);
-  font-weight: normal;
-  line-height: 1.7;
-  letter-spacing: 0;
-  padding: 0.35em 0 0.55em;
-  overflow: visible;
+    font-family: "IranNastaliq", serif;
+    direction: rtl;
+    text-align: center;
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    font-weight: normal;
+    line-height: 1.7;
+    letter-spacing: 0;
+    padding: 0.35em 0 0.55em;
+    overflow: visible;
 }
+
 .couple-name {
-  font-family: "IranNastaliq", serif;
-  direction: rtl;
-  text-align: center;
-  font-size: clamp(3rem, 8vw, 7rem);
-  font-weight: 500;
-  line-height: 1.8;
-  letter-spacing: 0;
-  padding: 0.4em;
+    font-family: "IranNastaliq", serif;
+    direction: rtl;
+    text-align: center;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 500;
+    line-height: 1.8;
+    letter-spacing: 0;
+    padding: 0.4em;
 }
+
 .nastaliq {
-  font-family: "IranNastaliq", serif;
-  direction: rtl;
-  text-align: center;
+    font-family: "IranNastaliq", serif;
+    direction: rtl;
+    text-align: center;
 
-  font-size: 25px;
-  font-weight: 400;
-  font-style: normal;
+    font-size: 25px;
+    font-weight: 400;
+    font-style: normal;
 
-  line-height: 2;
-  letter-spacing: 0;
-  word-spacing: 0.12em;
+    line-height: 2;
+    letter-spacing: 0;
+    word-spacing: 0.12em;
 
-  font-kerning: normal;
-  font-variant-ligatures: common-ligatures contextual;
-  font-feature-settings: "liga" 1, "calt" 1;
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures contextual;
+    font-feature-settings: "liga" 1, "calt" 1;
 
-  padding-block: 0.5em;
+    padding-block: 0.5em;
 }
 
 
@@ -630,7 +632,7 @@ h2 {
 
 .venue-card__head p {
     margin: 0;
-      direction: rtl;
+    direction: rtl;
     color: var(--muted);
     font-size: 10px;
     text-transform: uppercase;
@@ -639,7 +641,7 @@ h2 {
 
 .venue-card__head h4 {
     margin: 1px 0 0;
-      direction: rtl;
+    direction: rtl;
     font: 400 22px var(--serif)
 }
 
